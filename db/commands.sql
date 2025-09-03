@@ -23,4 +23,12 @@ DELETE FROM "cursos" WHERE "id" = 1;
 
 SELECT * FROM "cursos" Limit 2;
 
-UPDATE "cursos" SET "nome" = 'html e CSS', "aulas" = 20 "id" = 1;
+UPDATE "cursos" SET "nome" = 'html e CSS', "aulas" = 20 "id" = 1;   
+
+
+CREATE TABLE 
+
+
+DROP TABLE clientes
+
+

@@ -87,3 +87,63 @@ SELECT * FROM "cursos" WHERE "id" = 2 OR "aulas" > 10;
 UPDATE
 -Atualiza as colunas "nome" e "aulas" da tabela cursos onde o id é igual a 1
     UPDATE "cursos" SET "nome" = 'html e CSS', "aulas" = 20 "id" = 1;
+
+
+
+
+
+
+PRIMARY KEY, FOREIGN KEY:
+
+PK:
+
+CREATE TABLE "cursos" {
+  "id" INTEGER PRIMARY KEY,
+  "nome" TEXT,
+  "preco" INTEGER
+} STRICT;
+
+INSERT INTO
+"cursos" ("nome", "preco")
+VALUES
+('HTML", 1000);
+
+(NO PROJETO VAI TER QUE COLOCAR/INDICAR A PRIMARY KEY)
+
+ROWLD
+
+Toda tabela tem uma coluna oculta chamada rowid, que é um identificador único para cada linha.
+
+Se você não definir uma chave primária. o SQLite cria automaticamente uma rowidm
+
+Se você não definir uma coluna como INTEGER PRIMARY KEY. ela se torna um alias para a coluna rowid, isso não acontece caso use INT.
+
+SELECT "rowid", * FROM "cursos";
+
+
+FOREIGN KEY: CHAVE QUE REPRESENTA UMA COLUNA MAS ELA ESTÁ EM OUTRO LUGAR
+
+Estabelece uma relação entre tabelas, garantindo a integridade referencial.
+
+PRAGMA foreign_keys = ON;
+PRAGMA foreign_keys = OFF;
+PRAGMA foreign_keys;
+
+CREATE TABLE "cursos" (
+  "id" INTEGER PRIMARY KEY,
+  "nome" TEXT
+) STRICT;
+
+CREATE TABLE "aulas" (
+  "id" INTEGER PRIMARY KEY,
+  "curso_id" INTEGER,
+  "nome" TEXT,
+  FOREIGN KEY("curso_id") REFERENCES "cursos" ("id")
+) STRICT;
+
+INSERT INTO
+ "aulas" ("curso_id, "nome")
+ VALUES
+ (1, 'Fundamentos do HTML');
+
+ (STRICT: UM TERCO QUE USA PARA VALIDAR DE MANEIRA MAIS RIGOROSA, PARA QUE ESSA TIPAGEM SEJA RESPEITADA,)
