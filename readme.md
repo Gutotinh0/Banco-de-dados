@@ -324,3 +324,33 @@ HAVING "total" > 1;
 SELECT "categoria", AVG("preco") AS "preco_medio"
 FROM "produtos" GROUP BY "categiria"
 HAVING "preco_medio" > 70000;
+
+Subquery
+Devem ser escritas entre parenteses e o seu resultado serpa usado para compor a query principal
+
+SELECT * FROM "produtos"
+WHERE "preço" > (SELECT AVG("preco") FROM "produtos");
+
+Select * FROM "lessons"
+WHERE "course_id" = (
+  SELECT "id" FROM "courses" WHERE "slug" = 'javascript basico'
+);
+
+WITH AS
+
+Cria uma "subquery nomeada" (CTE - Commom Table Expression).
+que pode ser referenciada na query principal. É uma tabela temporario.
+
+WITH "preco_medio" AS (
+  SELECT AVG("preco") AS "media" FROM "produtos"
+)
+SELECT * FROM "produtos"
+WHERE "preco" > (SELECT "media" FROM "preco_medio")
+
+JOIN
+Agrega dados de duas ou mais tabelas com base em uma condiçao. 0 padrão do JOIN é o INNER JOIN, que retorna apenas as linhas que têm corresspondencia em ambas as tabelas, pode usar join inner join ou apenas a virgula 
+
+SELECT * FROM "lessons_completed"
+JOIN "users" ON "lessons_completed"."user_id" = "users"."id";
+
+SELECT "users"."name", "lessons_c   
