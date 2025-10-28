@@ -252,3 +252,10 @@ VALUES
 ('fpsyspuw',9,2,'2049-03-12 12:30:00'),
 ('s8jjeccz',10,3,'2049-04-11 13:30:00'),
 ('zr5qee0t',10,4,'2049-04-12 13:30:00');
+
+
+SELECT * FROM "lessons" where "course_id" = 1 ORDER BY "lesson_order" ASC;
+
+SELECT "css-animacoes", SUM ("seconds") AS "total_seconds" FROM "lessons" WHERE "course_id" = 2;
+
+SELECT "course_id", COUT(*) AS "total_aulas" FROM "courses" ORDER BY t DESC;
